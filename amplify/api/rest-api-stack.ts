@@ -45,15 +45,15 @@ export class RestApiAwsStack extends Stack {
 
     // 5. Create our Lambda functions to handle requests
     const postsLambda = new NodejsFunction(this, 'posts-lostnfound', {
-        entry: 'resources/endpoints/posts.ts',
+        entry: './resources/endpoints/posts.ts',
         handler: 'handler',
         environment: {
           TABLE_NAME: dbTable.tableName,
         },
       });
   
-    const postLambda = new NodejsFunction(this, 'posts-lostnfound', {
-        entry: 'resources/endpoints/post.ts',
+    const postLambda = new NodejsFunction(this, 'post-lostnfound', {
+        entry: './resources/endpoints/post.ts',
         handler: 'handler',
         environment: {
           TABLE_NAME: dbTable.tableName,
